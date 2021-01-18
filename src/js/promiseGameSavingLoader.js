@@ -1,11 +1,9 @@
 import json from './parser';
 import read from './reader';
 
-export default class GameSavingLoader {
-    static load() {
-
+export default class PromiseGameSavingLoader {
+    load() {
       return new Promise((resolve, reject) => {
-
         const value = read()
             .then(response => {
                return json(response);

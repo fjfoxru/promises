@@ -1,10 +1,21 @@
-import acyncGameSavingLoader from './acyncGameSavingLoader';
-import GameSavingLoader from './GameSavingLoader';
+import AsyncGameSavingLoader from './asyncGameSavingLoader';
+import PromiseGameSavingLoader from './promiseGameSavingLoader';
 
 
-GameSavingLoader.load().then((saving) => {
-    console.log(saving);
+const asyncGameSavingLoader = new AsyncGameSavingLoader();
+const promiseGameSavingLoader = new PromiseGameSavingLoader();
+
+promiseGameSavingLoader.load().then((saving) => {
+    console.log(saving, 'promiseGameSavingLoader');
   }, (error) => {
     // ...
   });
+
+asyncGameSavingLoader.load().then((saving) => {
+    console.log(saving, 'asyncGameSavingLoader');
+  }, (error) => {
+    // ...
+  });
+
+  
 
